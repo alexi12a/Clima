@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clima & Pronóstico</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="sketch.js" defer></script>
+</head>
+<body>
+
+    <main class="contenedor">
+
+        <header class="cabecera">
+            <span class="etiqueta">METEOROLOGÍA EN TIEMPO REAL</span>
+            <h1>Explora el clima</h1>
+            
+            <!-- Formulario integrado en barra -->
+            <form id="formulario" class="buscador">
+                <input id="ciudad" type="text" placeholder="Escribe una ciudad (ej. San Luis Potosí)..." required autocomplete="off">
+                <button type="submit">Buscar</button>
+            </form>
+        </header>
+
+        <!-- Mensajes de carga y errores -->
+        <p id="estado" class="estado" aria-live="polite"></p>
+
+        <!-- Panel principal de resultados -->
+        <section id="resultado" class="panel-clima" hidden>
+
+            <!-- Columna Izquierda: Clima Actual -->
+            <div class="tarjeta-actual">
+                <div class="ubicacion-header">
+                    <h2 id="ubicacion"></h2>
+                    <span id="actualizacion" class="hora-actualizacion"></span>
+                </div>
+
+                <div class="clima-principal">
+                    <span id="icono" class="icono-grande"></span>
+                    <div class="temp-bloque">
+                        <p id="temperatura"></p>
+                        <p id="descripcion"></p>
+                    </div>
+                </div>
+
+                <div class="datos-extra">
+                    <article class="dato-item">
+                        <span>Humedad</span>
+                        <strong id="humedad"></strong>
+                    </article>
+
+                    <article class="dato-item">
+                        <span>Sensación</span>
+                        <strong id="sensacion"></strong>
+                    </article>
+
+                    <article class="dato-item">
+                        <span>Viento</span>
+                        <strong id="viento"></strong>
+                    </article>
+                </div>
+            </div>
+
+            <!-- Columna Derecha: Pronóstico 3 Días -->
+            <div class="tarjeta-pronostico">
+                <h3>Próximos 3 días</h3>
+                <div id="pronostico-grid" class="pronostico-lista">
+                    <!-- Las tarjetas de los 3 días se generan desde script.js -->
+                </div>
+            </div>
+
+        </section>
+
+        <footer>
+            Datos impulsados por <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a>
+        </footer>
+
+    </main>
+
+</body>
+</html>
